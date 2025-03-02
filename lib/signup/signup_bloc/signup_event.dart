@@ -1,7 +1,8 @@
-part of 'signup_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:meta/meta.dart';
 
 @immutable
-sealed class SignupEvent extends Equatable{
+sealed class SignupEvent extends Equatable {
   const SignupEvent();
 
   @override

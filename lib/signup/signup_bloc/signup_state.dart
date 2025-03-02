@@ -1,4 +1,5 @@
-part of 'signup_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:meta/meta.dart';
 
 @immutable
 sealed class SignupState extends Equatable{

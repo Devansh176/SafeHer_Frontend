@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safer/home/home_ui/homePage.dart';
+import 'package:safer/network/auth_api_service.dart';
 import 'package:safer/signup/signup_bloc/signup_bloc.dart';
 
-import '../signup_auth/email_auth_signup.dart';
-
+import '../signup_bloc/signup_event.dart';
+import '../signup_bloc/signup_state.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -30,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       backgroundColor: Colors.lightGreen[50],
       body: BlocProvider(
-        create: (context) => SignupBloc(EmailAuthentication()),
+        create: (context) => SignupBloc(AuthApiService()),
         child: BlocConsumer<SignupBloc, SignupState>(
           listener: (context, state) {
             if (state is SignupSuccess) {

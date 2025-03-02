@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:safer/network/auth_api_service.dart';
 
 import '../../home/home_ui/homePage.dart';
 import '../login_bloc/login_bloc.dart';
@@ -29,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.lightGreen[50],
       body: BlocProvider(
-        create: (context) => LoginBloc(emailAuth: EmailAuthentication()),
+        create: (context) => LoginBloc(authApi: AuthApiService()),
         child: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
             if (state is LoginSuccess) {
