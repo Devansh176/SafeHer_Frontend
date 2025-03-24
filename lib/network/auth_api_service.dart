@@ -7,7 +7,6 @@ class AuthApiService {
       connectTimeout: Duration(seconds: 5),
       receiveTimeout: Duration(seconds: 3),
       followRedirects: false,
-      validateStatus: (status) => status! < 500,
     ),
   )..options.headers = {
     'Content-Type': 'application/json',
@@ -47,49 +46,8 @@ class AuthApiService {
         },
       );
       return response.data as Map<String, dynamic>;
-    } on DioException catch (dioError) {
-      throw Exception(_handleDioError(dioError, 'SignUp'));
     } catch (e) {
       throw Exception("SignUp failed: $e");
     }
-  }
-
-  String _handleDioError(DioError dioError, String action) {
-    String errorDescription = "";
-    switch (dioError.type) {
-      case DioExceptionType.cancel:
-        errorDescription = "$action request was cancelled.";
-        break;
-      case DioExceptionType.connectionTimeout:
-        errorDescription = "$action connection timeout.";
-        break;
-      case DioExceptionType.receiveTimeout:
-        errorDescription = "$action receive timeout.";
-        break;
-      case DioExceptionType.sendTimeout:
-        errorDescription = "$action send timeout.";
-        break;
-      case DioExceptionType.badResponse:
-        if (dioError.response != null) {
-          if (dioError.response!.statusCode == 302) {
-            errorDescription =
-            "$action encountered a redirect (302). Check if the endpoint URL is correct.";
-          } else {
-            errorDescription =
-            "$action failed with status code ${dioError.response!.statusCode}: ${dioError.response!.statusMessage}";
-          }
-        } else {
-          errorDescription = "$action failed due to an unknown response error.";
-        }
-        break;
-      case DioExceptionType.unknown:
-        errorDescription = "$action failed due to a network error: ${dioError.message}";
-        break;
-      case DioExceptionType.badCertificate:
-        throw UnimplementedError();
-      case DioExceptionType.connectionError:
-        throw UnimplementedError();
-    }
-    return errorDescription;
   }
 }

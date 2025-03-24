@@ -140,6 +140,12 @@
       "languageVersion": "3.5"
     },
     {
+      "name": "flutter_signin_button",
+      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_signin_button-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///C:/Users/ashud/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -150,6 +156,12 @@
       "rootUri": "file:///C:/Users/ashud/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.7"
+    },
+    {
+      "name": "font_awesome_flutter",
+      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/font_awesome_flutter-9.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "google_fonts",
@@ -392,7 +404,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-03-08T17:59:05.109046Z",
+  "generated": "2025-03-24T10:40:31.215131Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///C:/Users/ashud/flutter",

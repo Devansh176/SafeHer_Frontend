@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_signin_button/button_list.dart';
+import 'package:flutter_signin_button/button_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safer/network/auth_api_service.dart';
 
 import '../../home/home_ui/homePage.dart';
+import '../../network/GoogleSignInService.dart';
 import '../login_bloc/login_bloc.dart';
 
 
@@ -18,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  final ValueNotifier<bool> isLoading = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
@@ -117,6 +121,28 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ],
+                        ),
+                        SizedBox(height: height * 0.03,),
+                        Center(
+                          child: Text('or'),
+                        ),
+                        SizedBox(height: height * 0.03,),
+                        Center(
+                          child: ValueListenableBuilder(
+                            valueListenable: isLoading,
+                            builder: (context, loading, child) {
+                              return loading ? CircularProgressIndicator() :
+                              SignInButton(
+                                Buttons.Google,
+                                text: "Sign in with Google",
+                                onPressed: () async {
+                                  isLoading.value = true;
+                                  await GoogleSignInService().loginWithGoogle(context);
+                                  isLoading.value = false;
+                                },
+                              );
+                            },
+                          ),
                         ),
                       ],
                     ),
