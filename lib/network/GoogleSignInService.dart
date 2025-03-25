@@ -6,7 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../home/home_ui/homePage.dart';
 
 class GoogleSignInService {
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   ValueNotifier<bool> isLoading = ValueNotifier(false);
@@ -14,7 +14,10 @@ class GoogleSignInService {
   Future<void> loginWithGoogle(BuildContext context) async {
     try {
       isLoading.value = true;
-      GoogleSignInAccount? account = await _googleSignIn.signIn();
+      await _googleSignIn.signOut();
+      await _firebaseAuth.signOut();
+
+      final GoogleSignInAccount? account = await _googleSignIn.signIn();
       if (account != null) {
         final GoogleSignInAuthentication auth = await account.authentication;
         final AuthCredential credential = GoogleAuthProvider.credential(
@@ -43,11 +46,14 @@ class GoogleSignInService {
     }
   }
 
+
   Future<void> logout() async {
     try {
       await _googleSignIn.signOut();
       await _firebaseAuth.signOut();
       print('Logged out');
-    } catch (e) {}
+    } catch (e) {
+      print('Error logging out: $e');
+    }
   }
 }
