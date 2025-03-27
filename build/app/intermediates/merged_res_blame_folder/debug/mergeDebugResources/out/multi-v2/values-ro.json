@@ -31,20 +31,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\devan\\.gradle\\caches\\8.10.2\\transforms\\6643c4258ae11fe541bbf5ee341bcb98\\transformed\\browser-1.4.0\\res\\values-ro\\values-ro.xml",
+                    "source": "C:\\Users\\devan\\.gradle\\caches\\8.10.2\\transforms\\1a36ee1e87beff061ef9f2c053c4f171\\transformed\\browser-1.8.0\\res\\values-ro\\values-ro.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "55,162,264,379",
-                        "endColumns": "106,101,114,104",
-                        "endOffsets": "157,259,374,479"
+                        "startOffsets": "55,162,264,377",
+                        "endColumns": "106,101,112,102",
+                        "endOffsets": "157,259,372,475"
                     },
                     "to": {
                         "startLines": "29,30,31,32",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "3272,3379,3481,3596",
-                        "endColumns": "106,101,114,104",
-                        "endOffsets": "3374,3476,3591,3696"
+                        "startOffsets": "3272,3379,3481,3594",
+                        "endColumns": "106,101,112,102",
+                        "endOffsets": "3374,3476,3589,3692"
                     }
                 },
                 {
@@ -59,9 +59,9 @@
                     "to": {
                         "startLines": "4,5,6,7,8,9,10,33",
                         "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "286,384,486,586,685,787,896,3701",
+                        "startOffsets": "286,384,486,586,685,787,896,3697",
                         "endColumns": "97,101,99,98,101,108,116,100",
-                        "endOffsets": "379,481,581,680,782,891,1008,3797"
+                        "endOffsets": "379,481,581,680,782,891,1008,3793"
                     }
                 },
                 {

@@ -5,8 +5,9 @@ class ElevatedCard extends StatefulWidget {
   final IconData icon;
   final Color color;
   final String label;
+  final VoidCallback onTap;
 
-  const ElevatedCard({super.key, required this.icon, required this.color, required this.label});
+  const ElevatedCard({super.key, required this.icon, required this.color, required this.label, required this.onTap});
 
   @override
   State<ElevatedCard> createState() => _ElevatedCardState();
