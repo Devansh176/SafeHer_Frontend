@@ -19,6 +19,8 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <!--
  Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
