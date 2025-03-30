@@ -40,6 +40,7 @@ class _ElevatedCardState extends State<ElevatedCard> {
               _isPressed = false;
             });
             print("${widget.label} Button Pressed");
+            widget.onTap();
           },
           onTapCancel: () {
             setState(() {

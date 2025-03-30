@@ -7,6 +7,7 @@ import 'package:safer/home/contacts_ui/contacts_page.dart';
 import '../../login/login_ui/loginPage.dart';
 import 'elevated_cards/elevatedCard.dart';
 import 'home_bloc/call/call_bloc.dart';
+import 'home_bloc/call/utils/call_utils.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -150,8 +151,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.green,
                       label: "Call",
                       onTap: () {
-                        BlocProvider.of<CallBloc>(context)
-                            .add(CallRequest(phoneNumber: "+919999999999"));
+                        showCallDialog(context);
                       },
                     ),
                     ElevatedCard(

@@ -22,7 +22,7 @@ class ContactsRepository {
     final contactsJson = prefs.getString('selected_contacts');
     if (contactsJson == null) return [];
     final List<dynamic> decoded = jsonDecode(contactsJson);
-    return decoded.map((data) => _contactFromJson(data)).toList();
+    return decoded.map((data) => contactFromJson(data)).toList();
   }
 
   Map<String, dynamic> _contactToJson(Contact contact) {
@@ -33,7 +33,7 @@ class ContactsRepository {
     };
   }
 
-  Contact _contactFromJson(Map<String, dynamic> json) {
+  Contact contactFromJson(Map<String, dynamic> json) {
     return Contact(
       id: json['id'],
       displayName: json['displayName'],

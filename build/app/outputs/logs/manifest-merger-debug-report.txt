@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:11:5-43:19
+INJECTED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:14:5-46:19
 INJECTED from D:\Safe_Her\safer\android\app\src\debug\AndroidManifest.xml
 MERGED from [:firebase_auth] D:\Safe_Her\safer\build\firebase_auth\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_auth] D:\Safe_Her\safer\build\firebase_auth\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:7:5-13:19
@@ -53,8 +53,8 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\devan\.gradle\c
 	android:name
 		INJECTED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml
 manifest
-ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:1:1-59:12
-MERGED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:1:1-59:12
+ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:1:1-62:12
+MERGED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:1:1-62:12
 INJECTED from D:\Safe_Her\safer\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from D:\Safe_Her\safer\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from D:\Safe_Her\safer\android\app\src\debug\AndroidManifest.xml:1:1-7:12
@@ -64,6 +64,7 @@ MERGED from [:firebase_core] D:\Safe_Her\safer\build\firebase_core\intermediates
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\633413bad6a67ccffb521b72ab86b298\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:17:1-75:12
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\bcc8d2985ec1ab09d1e21c43fe50ab02\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:2:1-18:12
 MERGED from [:flutter_contacts] D:\Safe_Her\safer\build\flutter_contacts\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_phone_direct_caller] D:\Safe_Her\safer\build\flutter_phone_direct_caller\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:2:1-13:12
 MERGED from [:url_launcher_android] D:\Safe_Her\safer\build\url_launcher_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:2:1-14:12
 MERGED from [:google_sign_in_android] D:\Safe_Her\safer\build\google_sign_in_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] D:\Safe_Her\safer\build\path_provider_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:2:1-7:12
@@ -147,12 +148,16 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\devan\.gradle\c
 		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-feature#android.hardware.telephony
 ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:3:5-5:36
+MERGED from [:flutter_phone_direct_caller] D:\Safe_Her\safer\build\flutter_phone_direct_caller\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:5-11:36
+MERGED from [:flutter_phone_direct_caller] D:\Safe_Her\safer\build\flutter_phone_direct_caller\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:5-11:36
 	android:required
 		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:5:9-33
 	android:name
 		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:4:9-50
 uses-permission#android.permission.CALL_PHONE
 ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:6:5-68
+MERGED from [:flutter_phone_direct_caller] D:\Safe_Her\safer\build\flutter_phone_direct_caller\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:7:5-69
+MERGED from [:flutter_phone_direct_caller] D:\Safe_Her\safer\build\flutter_phone_direct_caller\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:7:5-69
 	android:name
 		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:6:22-66
 uses-permission#android.permission.READ_CONTACTS
@@ -163,26 +168,18 @@ uses-permission#android.permission.WRITE_CONTACTS
 ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:8:5-72
 	android:name
 		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:8:22-70
-queries
-ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:49:5-57:15
-intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
-ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:50:9-53:18
-action#android.intent.action.PROCESS_TEXT
-ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:51:13-72
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:9:5-78
+MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\633413bad6a67ccffb521b72ab86b298\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\633413bad6a67ccffb521b72ab86b298\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\devan\.gradle\caches\8.10.2\transforms\63c8215b4ef0ce806491a9ae657bddeb\transformed\jetified-recaptcha-18.6.1\AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\devan\.gradle\caches\8.10.2\transforms\63c8215b4ef0ce806491a9ae657bddeb\transformed\jetified-recaptcha-18.6.1\AndroidManifest.xml:8:5-79
 	android:name
-		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:51:21-70
-data
-ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:52:13-50
-	android:mimeType
-		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:52:19-48
-intent#action:name:android.intent.action.DIAL
-ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:54:9-56:18
-action#android.intent.action.DIAL
-ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:55:13-64
-	android:name
-		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:55:21-62
+		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:9:22-76
 uses-permission#android.permission.INTERNET
-ADDED from D:\Safe_Her\safer\android\app\src\debug\AndroidManifest.xml:6:5-66
+ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:10:5-66
+MERGED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:10:5-66
+MERGED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:10:5-66
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\633413bad6a67ccffb521b72ab86b298\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\633413bad6a67ccffb521b72ab86b298\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:25:5-67
 MERGED from [:google_sign_in_android] D:\Safe_Her\safer\build\google_sign_in_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:7:5-67
@@ -190,7 +187,25 @@ MERGED from [:google_sign_in_android] D:\Safe_Her\safer\build\google_sign_in_and
 MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\devan\.gradle\caches\8.10.2\transforms\63c8215b4ef0ce806491a9ae657bddeb\transformed\jetified-recaptcha-18.6.1\AndroidManifest.xml:7:5-67
 MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\devan\.gradle\caches\8.10.2\transforms\63c8215b4ef0ce806491a9ae657bddeb\transformed\jetified-recaptcha-18.6.1\AndroidManifest.xml:7:5-67
 	android:name
-		ADDED from D:\Safe_Her\safer\android\app\src\debug\AndroidManifest.xml:6:22-64
+		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:10:22-64
+queries
+ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:52:5-60:15
+intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
+ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:53:9-56:18
+action#android.intent.action.PROCESS_TEXT
+ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:54:13-72
+	android:name
+		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:54:21-70
+data
+ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:55:13-50
+	android:mimeType
+		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:55:19-48
+intent#action:name:android.intent.action.DIAL
+ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:57:9-59:18
+action#android.intent.action.DIAL
+ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:58:13-64
+	android:name
+		ADDED from D:\Safe_Her\safer\android\app\src\main\AndroidManifest.xml:58:21-62
 uses-sdk
 INJECTED from D:\Safe_Her\safer\android\app\src\debug\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Safe_Her\safer\android\app\src\debug\AndroidManifest.xml
@@ -207,6 +222,8 @@ MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\devan\.gra
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\bcc8d2985ec1ab09d1e21c43fe50ab02\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_contacts] D:\Safe_Her\safer\build\flutter_contacts\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_contacts] D:\Safe_Her\safer\build\flutter_contacts\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_phone_direct_caller] D:\Safe_Her\safer\build\flutter_phone_direct_caller\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_phone_direct_caller] D:\Safe_Her\safer\build\flutter_phone_direct_caller\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_android] D:\Safe_Her\safer\build\url_launcher_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_android] D:\Safe_Her\safer\build\url_launcher_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
 MERGED from [:google_sign_in_android] D:\Safe_Her\safer\build\google_sign_in_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
@@ -389,12 +406,6 @@ ADDED from [:firebase_core] D:\Safe_Her\safer\build\firebase_core\intermediates\
 		ADDED from [:firebase_core] D:\Safe_Her\safer\build\firebase_core\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] D:\Safe_Her\safer\build\firebase_core\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:10:17-124
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\633413bad6a67ccffb521b72ab86b298\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\devan\.gradle\caches\8.10.2\transforms\63c8215b4ef0ce806491a9ae657bddeb\transformed\jetified-recaptcha-18.6.1\AndroidManifest.xml:8:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.6.1] C:\Users\devan\.gradle\caches\8.10.2\transforms\63c8215b4ef0ce806491a9ae657bddeb\transformed\jetified-recaptcha-18.6.1\AndroidManifest.xml:8:5-79
-	android:name
-		ADDED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\633413bad6a67ccffb521b72ab86b298\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:26:22-76
 activity#com.google.firebase.auth.internal.GenericIdpActivity
 ADDED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\devan\.gradle\caches\8.10.2\transforms\633413bad6a67ccffb521b72ab86b298\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:29:9-46:20
 	android:excludeFromRecents

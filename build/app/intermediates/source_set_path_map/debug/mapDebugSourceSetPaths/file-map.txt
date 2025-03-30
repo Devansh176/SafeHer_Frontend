@@ -51,8 +51,9 @@ com.example.safer.app-debug-49 D:\Safe_Her\safer\build\app\intermediates\merged_
 com.example.safer.app-debug-50 D:\Safe_Her\safer\build\firebase_auth\intermediates\packaged_res\debug\packageDebugResources
 com.example.safer.app-debug-51 D:\Safe_Her\safer\build\firebase_core\intermediates\packaged_res\debug\packageDebugResources
 com.example.safer.app-debug-52 D:\Safe_Her\safer\build\flutter_contacts\intermediates\packaged_res\debug\packageDebugResources
-com.example.safer.app-debug-53 D:\Safe_Her\safer\build\google_sign_in_android\intermediates\packaged_res\debug\packageDebugResources
-com.example.safer.app-debug-54 D:\Safe_Her\safer\build\path_provider_android\intermediates\packaged_res\debug\packageDebugResources
-com.example.safer.app-debug-55 D:\Safe_Her\safer\build\permission_handler_android\intermediates\packaged_res\debug\packageDebugResources
-com.example.safer.app-debug-56 D:\Safe_Her\safer\build\shared_preferences_android\intermediates\packaged_res\debug\packageDebugResources
-com.example.safer.app-debug-57 D:\Safe_Her\safer\build\url_launcher_android\intermediates\packaged_res\debug\packageDebugResources
+com.example.safer.app-debug-53 D:\Safe_Her\safer\build\flutter_phone_direct_caller\intermediates\packaged_res\debug\packageDebugResources
+com.example.safer.app-debug-54 D:\Safe_Her\safer\build\google_sign_in_android\intermediates\packaged_res\debug\packageDebugResources
+com.example.safer.app-debug-55 D:\Safe_Her\safer\build\path_provider_android\intermediates\packaged_res\debug\packageDebugResources
+com.example.safer.app-debug-56 D:\Safe_Her\safer\build\permission_handler_android\intermediates\packaged_res\debug\packageDebugResources
+com.example.safer.app-debug-57 D:\Safe_Her\safer\build\shared_preferences_android\intermediates\packaged_res\debug\packageDebugResources
+com.example.safer.app-debug-58 D:\Safe_Her\safer\build\url_launcher_android\intermediates\packaged_res\debug\packageDebugResources
