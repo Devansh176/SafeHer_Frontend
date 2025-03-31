@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.green,
                       label: "Call",
                       onTap: () {
-                        showCallDialog(context);
+                        showContactSelectionBottomSheet(context);
                       },
                     ),
                     ElevatedCard(
