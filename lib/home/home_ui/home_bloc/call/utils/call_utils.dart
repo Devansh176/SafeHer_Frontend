@@ -34,53 +34,18 @@ void showContactSelectionBottomSheet(BuildContext context) async {
     return;
   }
 
-  showModalBottomSheet(
-    context: context,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-    ),
-    builder: (context) {
-      return Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "Select a Contact to Call",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            Divider(color: Colors.black,),
-            Flexible(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: contacts.length,
-                itemBuilder: (context, index) {
-                  Contact contact = contacts[index];
-                  String phoneNumber = contact.phones.isNotEmpty ? contact.phones.first.number : "";
-                  return ListTile(
-                    title: Text(contact.displayName),
-                    subtitle: Text(phoneNumber.isNotEmpty ? phoneNumber : "No Number Available"),
-                    onTap: () {
-                      if (phoneNumber.isNotEmpty) {
-                        Navigator.pop(context);
-                        makePhoneCall(phoneNumber);
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text("No phone number available for ${contact.displayName}"),
-                          ),
-                        );
-                      }
-                    },
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      );
-    },
-  );
+  Contact firstContact = contacts.first;
+  String phoneNumber = firstContact.phones.isNotEmpty ? firstContact.phones.first.number : "";
+
+  if(phoneNumber.isNotEmpty) {
+    makePhoneCall(phoneNumber);
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("No phone number available for ${firstContact.displayName}"),
+      ),
+    );
+  }
 }
 
 Future<void> makePhoneCall(String phoneNumber) async {
