@@ -1,6 +1,12 @@
-part of 'tracking_bloc.dart';
+abstract class TrackingState {}
 
-@immutable
-sealed class TrackingState {}
+class TrackingInitial extends TrackingState {}
 
-final class TrackingInitial extends TrackingState {}
+class TrackingInProgress extends TrackingState {
+  final double latitude;
+  final double longitude;
+
+  TrackingInProgress({required this.latitude, required this.longitude});
+}
+
+class TrackingStopped extends TrackingState {}

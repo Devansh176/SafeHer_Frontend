@@ -6,6 +6,10 @@ import 'package:safer/home/contacts_ui/contacts_call_page.dart';
 import 'package:safer/home/home_ui/home_bloc/alert/alert_utils/alert_utils.dart';
 
 import '../../login/login_ui/loginPage.dart';
+import '../../tracking/tracking_bloc/tracking_bloc.dart';
+import '../../tracking/tracking_bloc/tracking_event.dart';
+import '../../tracking/tracking_bloc/tracking_state.dart';
+import '../../tracking/tracking_service.dart';
 import '../contacts_ui/contacts_alert_page.dart';
 import 'elevated_cards/elevatedCard.dart';
 import 'home_bloc/call/call_bloc.dart';
@@ -42,8 +46,11 @@ class _HomePageState extends State<HomePage> {
     final double height = screenSize.height;
     final double fontSize = height * 0.05;
 
-    return BlocProvider(
-      create: (context) => CallBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => CallBloc()),
+        BlocProvider(create: (_) => TrackingBloc(trackingService: TrackingService())),
+      ],
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.lightGreen[50],
@@ -145,6 +152,17 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+                BlocBuilder<TrackingBloc, TrackingState>(
+                  builder: (context, state) {
+                    if (state is TrackingInProgress) {
+                      return Text(
+                        "📍 Lat: ${state.latitude}, Lng: ${state.longitude}",
+                        style: TextStyle(color: Colors.green[800]),
+                      );
+                    }
+                    return const SizedBox();
+                  },
+                ),
                 SizedBox(height: height * 0.03),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -167,7 +185,9 @@ class _HomePageState extends State<HomePage> {
                       icon: Icons.location_on,
                       color: Colors.blue,
                       label: "Location",
-                      onTap: () {  },
+                      onTap: () {
+                        context.read<TrackingBloc>().add(StartTracking());
+                      },
                     ),
                   ],
                 ),

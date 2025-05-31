@@ -38,6 +38,24 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "cloud_firestore",
+      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/cloud_firestore-5.6.8",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "cloud_firestore_platform_interface",
+      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/cloud_firestore_platform_interface-6.6.8",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "cloud_firestore_web",
+      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/cloud_firestore_web-4.4.8",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "collection",
       "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/collection-1.19.1",
       "packageUri": "lib/",
@@ -710,7 +728,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-05-31T06:37:49.717232Z",
+  "generated": "2025-05-31T08:18:11.711469Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///C:/Users/ashud/flutter",
