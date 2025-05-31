@@ -7,7 +7,6 @@ abstract class ContactsState extends Equatable {
 }
 
 class ContactsInitial extends ContactsState {}
-
 class ContactsLoading extends ContactsState {}
 
 class ContactsLoaded extends ContactsState {

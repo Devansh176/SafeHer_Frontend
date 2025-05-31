@@ -2,9 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:safer/home/contacts_ui/contacts_page.dart';
+import 'package:safer/home/contacts_ui/contacts_call_page.dart';
+import 'package:safer/home/home_ui/home_bloc/alert/alert_utils/alert_utils.dart';
 
 import '../../login/login_ui/loginPage.dart';
+import '../contacts_ui/contacts_alert_page.dart';
 import 'elevated_cards/elevatedCard.dart';
 import 'home_bloc/call/call_bloc.dart';
 import 'home_bloc/call/utils/call_utils.dart';
@@ -84,7 +86,14 @@ class _HomePageState extends State<HomePage> {
               ListTile(
                 leading: Icon(Icons.notification_add),
                 title: Text("Contacts to Alert"),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AlertContactsPage(),
+                    ),
+                  );
+                },
               ),
               ListTile(
                 leading: Icon(Icons.settings),
@@ -151,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.green,
                       label: "Call",
                       onTap: () {
-                        showContactSelectionBottomSheet(context);
+                        clickToCall(context);
                       },
                     ),
                     ElevatedCard(
@@ -180,30 +189,11 @@ class _HomePageState extends State<HomePage> {
                     ElevatedCard(
                       icon: Icons.warning_amber,
                       color: Colors.red[900]!,
-                      label: "Alert", onTap: () {  },
+                      label: "Alert", onTap: () {
+                        sendSmsToAlertContacts(context);
+                      },
                     ),
                   ],
-                ),
-                SizedBox(height: height * 0.05),
-                Center(
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                      WidgetStateProperty.all<Color>(Colors.lightGreen[50]!),
-                      side: WidgetStateProperty.all(
-                        const BorderSide(
-                          color: Colors.green,
-                        ),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Add Contact",
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),

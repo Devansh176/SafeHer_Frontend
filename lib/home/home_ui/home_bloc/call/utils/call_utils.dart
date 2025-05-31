@@ -8,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../repositories/contacts_repository.dart';
 
-void showContactSelectionBottomSheet(BuildContext context) async {
+void clickToCall(BuildContext context) async {
   final prefs = await SharedPreferences.getInstance();
   String? contactsJson = prefs.getString('selected_contacts');
 
