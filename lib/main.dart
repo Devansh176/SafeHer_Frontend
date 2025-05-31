@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:safer/home/home_ui/home_bloc/contacts/contacts_bloc.dart';
 import 'package:safer/repositories/contacts_repository.dart';
+import 'package:safer/tracking/location_bloc/location_bloc.dart';
 import 'firebase_options.dart';
 import 'home/home_ui/homePage.dart';
 import 'login/login_ui/loginPage.dart';
@@ -13,7 +14,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,11 +22,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ContactsBloc(ContactsRepository()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ContactsBloc(ContactsRepository()),
+        ),
+        BlocProvider(
+          create: (context) => LocationBloc(),
+        )
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: AuthCheck(),
+        home: const AuthCheck(),
       ),
     );
   }
@@ -36,20 +44,19 @@ class AuthCheck extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator(),);
-          } else if (snapshot.hasData) {
-            return HomePage();
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Something went wrong!'),);
-          } else {
-            return LoginPage();
-          }
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasData) {
+          return const HomePage();
+        } else if (snapshot.hasError) {
+          return const Center(child: Text('Something went wrong!'));
+        } else {
+          return const LoginPage();
         }
+      },
     );
   }
 }
-
