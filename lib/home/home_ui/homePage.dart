@@ -1,17 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safer/home/contacts_ui/contacts_call_page.dart';
-import 'package:safer/home/home_ui/home_bloc/alert/alert_utils/alert_utils.dart';
+import 'package:safer/home/home_ui/home_bloc/location/location_sharing_bloc.dart';
 
 import '../../login/login_ui/loginPage.dart';
-import '../contacts_ui/contacts_alert_page.dart';
+import '../contacts_ui/Contact_location_Page.dart';
 import 'elevated_cards/elevatedCard.dart';
 import 'home_bloc/call/call_bloc.dart';
 import 'home_bloc/call/utils/call_utils.dart';
-import 'home_bloc/location_contacts/location_bloc.dart';
-import 'home_bloc/location_contacts/location_event.dart';
+import 'home_bloc/contacts/contacts_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     getDisplayName();
+    context.read<ContactsBloc>().add(FetchSavedContactsEvent());
   }
 
   void getDisplayName() {
@@ -38,17 +39,35 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  Future<bool> ensureLocationPermission(BuildContext context) async {
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Location permission denied ❌")),
+        );
+        return false;
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Location permission permanently denied ❌")),
+      );
+      return false;
+    }
+    return true;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final double height = screenSize.height;
     final double fontSize = height * 0.05;
 
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => CallBloc()),
-        BlocProvider(create: (_) => LocationContactsBloc()),
-      ],
+    return BlocProvider(
+      create: (_) => CallBloc(),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.lightGreen[50],
@@ -88,14 +107,26 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
+              // ListTile(
+              //   leading: Icon(Icons.notification_add),
+              //   title: Text("Contacts to Alert"),
+              //   onTap: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => AlertContactsPage(),
+              //       ),
+              //     );
+              //   },
+              // ),
               ListTile(
-                leading: Icon(Icons.notification_add),
-                title: Text("Contacts to Alert"),
+                leading: Icon(Icons.location_on_outlined),
+                title: Text("Contacts to send Location"),
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AlertContactsPage(),
+                      builder: (context) => ContactLocationPage(),
                     ),
                   );
                 },
@@ -122,18 +153,33 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         backgroundColor: Colors.lightGreen[50],
-        body: BlocListener<CallBloc, CallState>(
-          listener: (context, state) {
-            if (state is CallLoading) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("Calling... 📞")),
-              );
-            } else if (state is CallFailure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("Error: ${state.errorMsg} ❌")),
-              );
-            }
-          },
+        body: MultiBlocListener(
+          listeners: [
+            BlocListener<CallBloc, CallState>(
+              listener: (context, state) {
+                if (state is CallLoading) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Calling... 📞")),
+                  );
+                } else if (state is CallFailure) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Error: ${state.errorMsg} ❌")),
+                  );
+                }
+              },
+            ),
+            BlocListener<LocationSharingBloc, LocationSharingState>(
+              listener: (context, state) {
+                if (state is LocationSending) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sending location...")));
+                } else if (state is LocationSuccess) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Location sent successfully")));
+                } else if (state is LocationFailure) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: ${state.message}")));
+                }
+              },
+            ),
+          ],
           child: Padding(
             padding: EdgeInsets.only(top: height * 0.02),
             child: Column(
@@ -172,8 +218,11 @@ class _HomePageState extends State<HomePage> {
                       icon: Icons.location_on,
                       color: Colors.blue,
                       label: "Location",
-                      onTap: () {
-                        context.read<LocationContactsBloc>().add(SendLocationToContacts());
+                      onTap: () async {
+                        final state = context.read<ContactsBloc>().state;
+                        if (state is ContactsLoaded) {
+                          context.read<LocationSharingBloc>().add(ShareLocationEvent(selectedContacts: state.selectedContacts));
+                        }
                       },
                     ),
                   ],
@@ -193,13 +242,13 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.purple,
                       label: "Police", onTap: () {  },
                     ),
-                    ElevatedCard(
-                      icon: Icons.warning_amber,
-                      color: Colors.red[900]!,
-                      label: "Alert", onTap: () {
-                        sendSmsToAlertContacts(context);
-                      },
-                    ),
+                    // ElevatedCard(
+                    //   icon: Icons.warning_amber,
+                    //   color: Colors.red[900]!,
+                    //   label: "Alert", onTap: () {
+                    //     sendSmsToAlertContacts(context);
+                    //   },
+                    // ),
                   ],
                 ),
               ],

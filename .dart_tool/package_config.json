@@ -8,22 +8,10 @@
       "languageVersion": "3.2"
     },
     {
-      "name": "args",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/args-2.7.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.3"
-    },
-    {
       "name": "async",
       "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/async-2.12.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
-    },
-    {
-      "name": "background_locator_2",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/background_locator_2-2.0.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "bloc",
@@ -90,12 +78,6 @@
       "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/cupertino_icons-1.0.8",
       "packageUri": "lib/",
       "languageVersion": "3.1"
-    },
-    {
-      "name": "dbus",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
     },
     {
       "name": "dio",
@@ -234,30 +216,6 @@
       "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-5.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.5"
-    },
-    {
-      "name": "flutter_local_notifications",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_local_notifications-19.2.1",
-      "packageUri": "lib/",
-      "languageVersion": "3.4"
-    },
-    {
-      "name": "flutter_local_notifications_linux",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_local_notifications_linux-6.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.4"
-    },
-    {
-      "name": "flutter_local_notifications_platform_interface",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_local_notifications_platform_interface-9.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.4"
-    },
-    {
-      "name": "flutter_local_notifications_windows",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_local_notifications_windows-1.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.4"
     },
     {
       "name": "flutter_phone_direct_caller",
@@ -554,12 +512,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "petitparser",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/petitparser-6.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.5"
-    },
-    {
       "name": "platform",
       "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/platform-3.1.6",
       "packageUri": "lib/",
@@ -674,6 +626,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "telephony",
+      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/telephony-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "term_glyph",
       "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/term_glyph-1.2.2",
       "packageUri": "lib/",
@@ -684,12 +642,6 @@
       "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/test_api-0.7.4",
       "packageUri": "lib/",
       "languageVersion": "3.5"
-    },
-    {
-      "name": "timezone",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/timezone-0.10.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.19"
     },
     {
       "name": "typed_data",
@@ -776,19 +728,13 @@
       "languageVersion": "3.3"
     },
     {
-      "name": "xml",
-      "rootUri": "file:///C:/Users/devan/AppData/Local/Pub/Cache/hosted/pub.dev/xml-6.5.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.2"
-    },
-    {
       "name": "safer",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-06-01T15:00:04.918509Z",
+  "generated": "2025-06-02T15:18:16.645422Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///C:/Users/ashud/flutter",

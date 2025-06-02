@@ -48,16 +48,15 @@ dependencies:
   flutter_contacts: ^1.1.9+2
   flutter_phone_direct_caller: ^2.1.1
   url_launcher: ^6.3.1
-  sms_advanced:
-    path: packages/sms_advanced
   geolocator: ^14.0.1
   google_maps_flutter: ^2.12.2
+  sms_advanced:
+    path: packages/sms_advanced
   firebase_database: ^11.3.6
   firebase_messaging: ^15.2.6
   http: ^1.4.0
   cloud_firestore: ^5.6.8
-  background_locator_2: ^2.0.6
-  flutter_local_notifications: ^19.2.1
+  telephony: ^0.2.0
 
 dev_dependencies:
   flutter_test:

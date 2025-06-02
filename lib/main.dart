@@ -3,8 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:safer/home/home_ui/home_bloc/contacts/contacts_bloc.dart';
+import 'package:safer/home/home_ui/home_bloc/location/location_sharing_bloc.dart';
 import 'package:safer/repositories/contacts_repository.dart';
-import 'package:safer/tracking/tracking_bloc/tracking_bloc.dart';
 import 'firebase_options.dart';
 import 'home/home_ui/homePage.dart';
 import 'login/login_ui/loginPage.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           create: (context) => ContactsBloc(ContactsRepository()),
         ),
         BlocProvider(
-          create: (context) => LocationBloc(),
+          create: (context) => LocationSharingBloc(),
         )
       ],
       child: MaterialApp(

@@ -1,56 +1,73 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../home_ui/home_bloc/contacts/contacts_bloc.dart';
+import '../home_ui/home_bloc/location/location_sharing_bloc.dart';
+import 'contact_call_selection_page.dart';
 
-import '../home_ui/home_bloc/location_contacts/location_bloc.dart';
-import '../home_ui/home_bloc/location_contacts/location_event.dart';
-import '../home_ui/home_bloc/location_contacts/location_state.dart';
-
-class ContactLocationSelectionPage extends StatefulWidget {
-  const ContactLocationSelectionPage({super.key});
-
-  @override
-  State<ContactLocationSelectionPage> createState() => _ContactLocationSelectionPageState();
-}
-
-class _ContactLocationSelectionPageState extends State<ContactLocationSelectionPage> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<LocationContactsBloc>().add(LoadLocationContactsEvent());
-    });
-  }
+class SelectedLocationContactsPage extends StatelessWidget {
+  const SelectedLocationContactsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Select Location Contacts")),
-      body: BlocBuilder<LocationContactsBloc, LocationContactsState>(
+      appBar: AppBar(
+        title: const Text('Location Sharing Contacts'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => const ContactSelectionPage(),
+              ));
+            },
+          )
+        ],
+      ),
+      body: BlocBuilder<ContactsBloc, ContactsState>(
         builder: (context, state) {
-          if (state is LocationContactsLoading) {
+          if (state is ContactsLoading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (state is LocationContactsError) {
+          } else if (state is ContactsError) {
             return Center(child: Text(state.message));
-          } else if (state is LocationContactsLoaded) {
+          } else if (state is ContactsLoaded) {
+            if (state.selectedContacts.isEmpty) {
+              return const Center(child: Text("No contacts selected"));
+            }
             return ListView.builder(
-              itemCount: state.contacts.length,
+              itemCount: state.selectedContacts.length,
               itemBuilder: (context, index) {
-                final contact = state.contacts[index];
+                final contact = state.selectedContacts[index];
                 return ListTile(
                   title: Text(contact.displayName),
-                  subtitle: Text(contact.phones.isNotEmpty ? contact.phones[0].number : "No number"),
-                  onTap: () {
-                    context.read<LocationContactsBloc>().add(SelectLocationContactEvent(contact: contact));
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("${contact.displayName} added for location sharing")),
-                    );
-                  },
+                  subtitle: Text(contact.phones.isNotEmpty
+                      ? contact.phones[0].number
+                      : 'No number'),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.remove_circle),
+                    onPressed: () {
+                      context.read<ContactsBloc>().add(
+                        RemoveContactEvent(contact: contact),
+                      );
+                    },
+                  ),
                 );
               },
             );
           }
-          return const SizedBox();
+          return const Center(child: Text("Unexpected error"));
         },
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          final state = context.read<ContactsBloc>().state;
+          if (state is ContactsLoaded) {
+            context.read<LocationSharingBloc>().add(
+              ShareLocationEvent(selectedContacts: state.selectedContacts),
+            );
+          }
+        },
+        label: const Text("Share Live Location"),
+        icon: const Icon(Icons.location_on),
       ),
     );
   }
