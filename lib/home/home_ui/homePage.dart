@@ -6,12 +6,12 @@ import 'package:safer/home/contacts_ui/contacts_call_page.dart';
 import 'package:safer/home/home_ui/home_bloc/alert/alert_utils/alert_utils.dart';
 
 import '../../login/login_ui/loginPage.dart';
-import '../../tracking/location_bloc/location_bloc.dart';
-import '../../tracking/location_bloc/location_event.dart';
 import '../contacts_ui/contacts_alert_page.dart';
 import 'elevated_cards/elevatedCard.dart';
 import 'home_bloc/call/call_bloc.dart';
 import 'home_bloc/call/utils/call_utils.dart';
+import 'home_bloc/location_contacts/location_bloc.dart';
+import 'home_bloc/location_contacts/location_event.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => CallBloc()),
-        BlocProvider(create: (_) => LocationBloc()),
+        BlocProvider(create: (_) => LocationContactsBloc()),
       ],
       child: Scaffold(
         appBar: AppBar(
@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.blue,
                       label: "Location",
                       onTap: () {
-                        context.read<LocationBloc>().add(ShareLiveLocation());
+                        context.read<LocationContactsBloc>().add(SendLocationToContacts());
                       },
                     ),
                   ],

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../tracking_service.dart';
-import 'location_event.dart';
-import 'location_state.dart';
+import 'tracking_event.dart';
+import 'tracking_state.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
   LocationBloc() : super(LocationInitial()) {
@@ -19,7 +19,6 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       final lastLocation = TrackingService.getLastLocation();
       if (lastLocation != null) {
         try {
-          // 🔴 Replace this with your real emergency contacts sharing logic
           await _shareWithEmergencyContacts(
             lastLocation.latitude,
             lastLocation.longitude,
@@ -36,9 +35,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
   Future<void> _shareWithEmergencyContacts(
       double latitude, double longitude) async {
-    // 🟢 Send an HTTP request to your backend with the location + emergency contacts
     print("Sharing location to emergency contacts: $latitude, $longitude");
 
-    // Example: send to Firebase or Spring Boot API
   }
 }
