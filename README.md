@@ -8,7 +8,6 @@
 
 - 🚨 One-tap emergency alert system
 - 📍 Real-time location tracking
-- 🧭 Smart path learning with unsafe route detection
 - 📤 Instant location sharing via SMS
 - 📞 Emergency call quick-dial
 - 👥 Contact selection for calls and location sharing
@@ -81,6 +80,7 @@
 
 - Dockerized backend deployment
 - Push notifications for alerts
+- Smart path learning with unsafe route detection
 - Admin dashboard for monitoring
 - AI-based unsafe zone prediction using crime data
 - Multi-language support
