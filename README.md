@@ -8,6 +8,7 @@
 
 - 🚨 One-tap emergency alert system
 - 📍 Real-time location tracking
+- 🧭 Smart path learning with unsafe route detection
 - 📤 Instant location sharing via SMS
 - 📞 Emergency call quick-dial
 - 👥 Contact selection for calls and location sharing
@@ -26,7 +27,7 @@
 | Auth        | Firebase Authentication                |
 | Database    | PostgreSQL                             |
 | DevOps      | Docker (planned), Git, GitHub          |
-| Deployment  | Android APK (manual), Firebase Hosting (future)
+| Deployment  | Android APK (manual), Firebase Hosting (future) |
 
 ---
 
@@ -38,53 +39,56 @@
    ```bash
    git clone https://github.com/your-username/safeher-backend.git
    cd safeher-backend
-Configure application.properties with:
+   ```
 
-Firebase credentials
+2. Configure `application.properties` with:
+   - Firebase credentials
+   - PostgreSQL connection details
 
-PostgreSQL connection details
+3. Build and run:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
 
-Build and run:
+### 📱 Frontend (Flutter)
 
-bash
-Copy
-Edit
-./mvnw spring-boot:run
-📱 Frontend (Flutter)
-Clone the frontend:
+1. Clone the frontend:
+   ```bash
+   git clone https://github.com/your-username/safeher-app.git
+   cd safeher-app
+   ```
 
-bash
-Copy
-Edit
-git clone https://github.com/your-username/safeher-app.git
-cd safeher-app
-Install dependencies:
+2. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
 
-bash
-Copy
-Edit
-flutter pub get
-Run the app:
+3. Run the app:
+   ```bash
+   flutter run
+   ```
 
-bash
-Copy
-Edit
-flutter run
-🧪 Testing
-Unit tests are written for BLoC and repository layers.
+---
 
-Integration tests for emergency features and contact handling.
+## 🧪 Testing
 
-📌 Future Enhancements
-Dockerized backend deployment
+- Unit tests are written for BLoC and repository layers.
+- Integration tests for emergency features and contact handling.
 
-Push notifications for alerts
+---
 
-Admin dashboard for monitoring
+## 📌 Future Enhancements
 
-AI-based unsafe zone prediction using crime data
+- Dockerized backend deployment
+- Push notifications for alerts
+- Admin dashboard for monitoring
+- AI-based unsafe zone prediction using crime data
+- Multi-language support
 
-Multi-language support
+---
 
-🤝 Contributing
+## 🤝 Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss your ideas.
+
+---
